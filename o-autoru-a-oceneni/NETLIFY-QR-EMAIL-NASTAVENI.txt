@@ -1,0 +1,78 @@
+HEITMAR LEATHER – DIY BOX / QR PLATBA A E-MAIL
+================================================
+
+Co je v této verzi hotové
+--------------------------
+- Nová prodejní landing page pro Crossbody DIY Box.
+- Cena: 2 490 Kč.
+- Doprava po ČR: 120 Kč.
+- Objednávka počítá celkovou cenu automaticky.
+- Po odeslání vytvoří unikátní číslo objednávky a variabilní symbol.
+- Zobrazí QR Platbu pro účet 2700974964/2010 (Milan Heitmar).
+- Platební údaje a QR kód umí odeslat zákazníkovi e-mailem.
+- Kopie objednávky se posílá na milan.heitmar@seznam.cz.
+- Formulář se zároveň ukládá do Netlify Forms jako záloha.
+- Objednávka se NEOZNAČUJE jako Purchase v Meta/GA4; eviduje se jako odeslaná objednávka / Lead. Skutečnou platbu zatím kontrolujete ručně v bance.
+
+DŮLEŽITÉ – heslo k e-mailu se nedává do HTML ani do ZIPu
+---------------------------------------------------------
+Aby Netlify Function mohla posílat e-maily z milan.heitmar@seznam.cz,
+uložte heslo pouze jako tajnou proměnnou v Netlify.
+
+V Netlify otevřete:
+Project configuration -> Environment variables
+
+a přidejte:
+SMTP_PASS = vaše heslo pro SMTP / heslo aplikace
+
+Heslo nikomu neposílejte a nevkládejte ho do souborů webu.
+Pokud máte u Seznamu zapnuté dvoufázové ověření, použijte heslo pro aplikaci,
+pokud ho Seznam pro SMTP vyžaduje.
+V nastavení Seznam E-mailu musí být zároveň povolený přístup z poštovních aplikací / SMTP.
+Pokud odesílání nefunguje, zkontrolujte nejdříve právě toto nastavení.
+
+Kód má přednastaveno:
+SMTP_HOST = smtp.seznam.cz
+SMTP_PORT = 465
+SMTP_USER = milan.heitmar@seznam.cz
+SMTP_FROM = milan.heitmar@seznam.cz
+OWNER_EMAIL = milan.heitmar@seznam.cz
+
+Tyto hodnoty tedy není nutné v Netlify přidávat, pokud je nechcete měnit.
+
+Nasazení
+--------
+Tato verze používá Netlify Function a npm balíčky "nodemailer" a "qrcode".
+Je proto potřeba nasadit celý projekt, ne jen samotný soubor index.html.
+
+Doporučené možnosti:
+1) Git / Continuous deployment na Netlify – Netlify nainstaluje závislosti a funkci sestaví automaticky.
+2) Netlify CLI – ruční deploy projektu včetně functions.
+
+Pokud používáte pouze prosté nahrání předem hotové statické složky, ověřte po deployi,
+že v Netlify -> Functions vidíte funkci "create-diy-order".
+Bez ní se automatické QR/e-mailové objednání nespustí.
+
+Po deployi udělejte test
+------------------------
+1. Otevřete /diy-box-kozena-kabelka/
+2. Vyplňte testovací objednávku vlastním e-mailem.
+3. Po odeslání se musí zobrazit:
+   - číslo objednávky HL-YYMMDD-XXXX
+   - účet 2700974964/2010
+   - částka
+   - variabilní symbol
+   - QR kód
+4. Zkontrolujte, že e-mail přijde zákazníkovi i na milan.heitmar@seznam.cz.
+5. Zkontrolujte Netlify -> Forms, že se objednávka uložila.
+6. QR kód před ostrým spuštěním jednou načtěte bankovní aplikací a zkontrolujte účet, částku a VS. Platbu nemusíte potvrdit.
+
+Poznámka k platbě
+-----------------
+QR používá český formát QR Platba (SPAYD). Pro domácí účet 2700974964/2010
+je použit IBAN CZ2820100000002700974964.
+
+Slovensko
+---------
+Automatická objednávka je v této první verzi určena pro ČR, protože cena dopravy
+na Slovensko není pevně zadaná. Na stránce zůstává možnost domluvit Slovensko e-mailem.
