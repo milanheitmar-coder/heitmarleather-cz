@@ -1,0 +1,9 @@
+[build]
+  publish = "."
+  command = ""
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Pravidla hlaviček a přesměrování jsou v souborech _headers a _redirects.

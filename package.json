@@ -1,0 +1,10 @@
+{
+  "name": "heitmar-leather-cz",
+  "private": true,
+  "version": "2026.09.21",
+  "description": "Static Heitmar Leather website with Netlify Function for DIY Box bank-transfer checkout.",
+  "dependencies": {
+    "nodemailer": "^7.0.6",
+    "qrcode": "^1.5.4"
+  }
+}

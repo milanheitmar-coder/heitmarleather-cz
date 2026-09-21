@@ -1,0 +1,55 @@
+HEITMAR LEATHER – ZMĚNY DIY BOX 21. 9. 2026
+===========================================
+
+Hlavní landing page /diy-box-kozena-kabelka/
+- Nový hero: „Vyrobte si vlastní kabelku z pravé kůže. Bez jediného stehu.“
+- Výsledek (kabelka na postavě) je vidět hned nahoře.
+- Video přesunuto hned za hero.
+- Stránka zkrácena a přeuspořádána podle prodejního funnelu.
+- Zachován pouze Crossbody jako první produkt.
+- Tři barvy: Přírodní, Dub tmavý, Černá.
+- Zdůrazněno: pravá kůže, bez šití, bez speciálního nářadí, videonávod.
+- Samostatná dárková sekce pro muže / dárkové nákupy.
+- 14denní příprava prezentována jako příprava na objednávku.
+- Trikolora už není samostatná dlouhá prodejní sekce; je součástí obsahu boxu.
+
+Objednávka
+- Cena Crossbody DIY Boxu: 2 490 Kč.
+- Doprava po ČR: 120 Kč.
+- Zásilkovna nebo Česká pošta.
+- Doplněny doručovací údaje: jméno, e-mail, telefon, ulice, město, PSČ.
+- U Zásilkovny se zobrazí pole pro výdejní místo.
+- Živý souhrn ceny.
+- Tlačítko „Objednat s povinností platby“.
+
+QR platba
+- Účet: 2700974964/2010
+- Příjemce: Milan Heitmar
+- Po objednávce se vygeneruje unikátní číslo objednávky a VS.
+- QR Platba obsahuje účet, částku, měnu a VS.
+- QR se zobrazí přímo na webu.
+- Účet a VS lze zkopírovat.
+
+E-mail
+- Zákazník dostane souhrn objednávky, účet, částku, VS a QR kód.
+- Milan Heitmar dostane kopii nové objednávky.
+- Odesílání používá Netlify Function a SMTP Seznamu.
+- Heslo není nikde v kódu; nastavuje se pouze jako SMTP_PASS v Netlify.
+
+Záloha objednávek
+- Po vytvoření objednávky se formulář pokusí uložit také do Netlify Forms.
+- Skutečné přijetí platby se nadále kontroluje ručně v bance.
+- Odeslaná objednávka se měří jako Lead / diy_order_submitted, nikoli jako Purchase.
+
+Nové technické soubory
+- assets/diy.20260921.css
+- assets/diy-checkout.20260921.js
+- netlify/functions/create-diy-order.js
+- package.json
+- NETLIFY-QR-EMAIL-NASTAVENI.txt
+
+Upravené soubory
+- diy-box-kozena-kabelka/index.html
+- pravni-minimum.html
+- odeslano-diy/index.html
+- netlify.toml
