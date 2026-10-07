@@ -25,6 +25,9 @@ http://astounding-moxie-f1d45b.netlify.app/*      https://heitmarleather.cz/:spl
 /zakazkova-kozena-prace/     /autorske-zakazky-z-kuze/     301!
 /legal-minimum               /pravni-minimum.html          301!
 /legal-minimum.html          /pravni-minimum.html          301!
+# Staré anglické URL peněženek přesměrovat na existující anglickou kategorii.
+/en/wallets/                 https://heitmarleather.com/wallets/     301!
+/en/wallets/*                https://heitmarleather.com/wallets/     301!
 /en/*                        https://heitmarleather.com/:splat     301!
 /de/*                        https://heitmarleather.com/de/:splat  301!
 
