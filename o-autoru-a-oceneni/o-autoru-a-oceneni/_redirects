@@ -1,0 +1,46 @@
+# Přesměrování technických Netlify adres na ostrou doménu, aby nevznikala duplicita webu.
+# Zachovává cestu stránky přes :splat, například /kontakt/ -> https://heitmarleather.cz/kontakt/
+https://symphonious-kitsune-5e1a4f.netlify.app/*  https://heitmarleather.cz/:splat  301!
+http://symphonious-kitsune-5e1a4f.netlify.app/*   https://heitmarleather.cz/:splat  301!
+https://astounding-moxie-f1d45b.netlify.app/*     https://heitmarleather.cz/:splat  301!
+http://astounding-moxie-f1d45b.netlify.app/*      https://heitmarleather.cz/:splat  301!
+
+# Bezpečné přesměrování pro statický web Heitmar Leather.
+# DŮLEŽITÉ: žádné univerzální přepisování všech adres na hlavní stránku – to způsobovalo obrovské množství pageview při bot provozu.
+
+# Nová stabilní adresa DIY boxu. Původní adresa zůstává funkční přes trvalé přesměrování.
+/diy-sada-kozena-kabelka          /diy-box-kozena-kabelka/          301!
+/diy-sada-kozena-kabelka/         /diy-box-kozena-kabelka/          301!
+/diy-sada-kozena-kabelka/index.html /diy-box-kozena-kabelka/        301!
+
+/peněženky/                 /penezenky-na-zakazku/        301!
+/penezenky/                 /penezenky-na-zakazku/        301!
+/pouzdra%20na%20nože/        /pouzdra-na-noze/             301!
+/pouzdra%20na%20noze/        /pouzdra-na-noze/             301!
+/pouzdra-na-zbran/           /holstery-na-zakazku/         301!
+/pouzdra/                    /holstery-na-zakazku/         301!
+/o-ocenění/                  /o-autoru-a-oceneni/          301!
+/o-oceneni/                  /o-autoru-a-oceneni/          301!
+/zakázková%20kožená%20práce/ /autorske-zakazky-z-kuze/     301!
+/zakazkova-kozena-prace/     /autorske-zakazky-z-kuze/     301!
+/legal-minimum               /pravni-minimum.html          301!
+/legal-minimum.html          /pravni-minimum.html          301!
+/en/*                        https://heitmarleather.com/:splat     301!
+/de/*                        https://heitmarleather.com/de/:splat  301!
+
+# Sloučení krátkých obsahově duplicitních SEO stránek do hlavních služeb.
+/brasnarstvi-na-zakazku/*    /zakazkove-brasnarstvi/                301!
+/rucni-vyroba-z-kuze/*       /zakazkove-brasnarstvi/                301!
+/kozene-vyrobky-na-zakazku/* /zakazkova-vyroba-z-kuze/             301!
+/zakazkove-kozene-vyrobky/*  /zakazkova-vyroba-z-kuze/             301!
+/holstery-na-zakazku/pouzdro-na-zbran-na-zakazku/* /holstery-na-zakazku/ 301!
+/pouzdra-na-noze/kozene-pouzdro-na-nuz-na-miru/* /pouzdra-na-noze/ 301!
+/penezenky-na-zakazku/rucne-sita-penezenka-na-miru/* /penezenky-na-zakazku/ 301!
+/kurzy-prace-s-kuzi/leather-carving-kurz/* /kurzy-prace-s-kuzi/   301!
+
+/kurzy/                     /kurzy-prace-s-kuzi/          301!
+/kurz/                      /kurzy-prace-s-kuzi/          301!
+/workshop/                  /kurzy-prace-s-kuzi/          301!
+/poukaz/                    /kontakt/#poptavka            301!
+/pouzdroy-na-zakazku/*      /holstery-na-zakazku/         301!
+/colt-saa-medusa-perseus/   /holstery-na-zakazku/colt-saa-medusa-perseus/ 301!

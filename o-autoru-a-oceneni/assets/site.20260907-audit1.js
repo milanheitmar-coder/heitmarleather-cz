@@ -72,10 +72,12 @@
 
 window.HL_GA4_ID = 'G-H13KGWHSCM';
 window.HL_META_PIXEL_ID = '2737383736617007';
+window.HL_CLARITY_ID = 'ysw7tnw60w';
 window.HL_COOKIE_KEY = 'heitmar_cookie_choice_v1';
 window.HL_PENDING_LEAD_KEY = 'heitmar_pending_lead_v1';
 window.HL_GTAG_LOADED = false;
 window.HL_META_LOADED = false;
+window.HL_CLARITY_LOADED = false;
 
 function hlHasConsent() {
   return localStorage.getItem(window.HL_COOKIE_KEY) === 'accepted';
@@ -114,6 +116,31 @@ function hlLoadMetaPixel() {
   fbq('init', window.HL_META_PIXEL_ID);
   fbq('track', 'PageView');
   hlTrackMetaPageSpecificEvents();
+}
+
+function hlLoadClarity() {
+  if (window.HL_CLARITY_LOADED || !hlHasConsent()) return;
+  window.HL_CLARITY_LOADED = true;
+
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, 'clarity', 'script', window.HL_CLARITY_ID);
+
+  // The cookie banner grants analytics consent only. Microsoft Ads storage stays denied.
+  window.clarity('consentv2', {
+    ad_Storage: 'denied',
+    analytics_Storage: 'granted'
+  });
+}
+
+function hlRevokeClarityConsent() {
+  if (typeof window.clarity !== 'function') return;
+  window.clarity('consentv2', {
+    ad_Storage: 'denied',
+    analytics_Storage: 'denied'
+  });
 }
 
 function hlTrackMetaPageSpecificEvents() {
@@ -354,8 +381,11 @@ document.addEventListener('DOMContentLoaded', function(){
     if (value === 'accepted') {
       hlLoadGoogleTag();
       hlLoadMetaPixel();
+      hlLoadClarity();
       hlTrackMetaPageSpecificEvents();
       hlTrackConfirmedLeadOnce();
+    } else if (value === 'rejected') {
+      hlRevokeClarityConsent();
     }
     hideBanner();
   }
@@ -363,6 +393,7 @@ document.addEventListener('DOMContentLoaded', function(){
   if (state === 'accepted') {
     hlLoadGoogleTag();
     hlLoadMetaPixel();
+    hlLoadClarity();
     hlTrackMetaPageSpecificEvents();
   } else if (state !== 'rejected') {
     showBanner();
