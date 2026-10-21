@@ -1,0 +1,16 @@
+/* Product-page visual improvements, Heitmar Leather Studio, 2026-10-21. Scoped to DIY page only. */
+.diy-hero h1{font-size:clamp(2.55rem,4.7vw,4.45rem);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+.diy-hero .page-hero-card img{max-height:710px;object-fit:cover;object-position:center 42%}
+.diy-looks-intro{background:#efe2d0;color:#281c15;padding:65px 0}
+.diy-looks-layout{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:46px;align-items:center}
+.diy-looks-intro .kicker{color:#865e34}
+.diy-looks-intro h2{color:#291c15;font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.12;letter-spacing:-.02em}
+.diy-looks-intro .line{background:#a97948}
+.diy-looks-intro .intro,.diy-looks-fact{color:#554335;line-height:1.72;font-size:1.05rem}
+.diy-looks-fact{margin:16px 0 26px}
+.diy-looks-figure{padding:0;margin:0}
+.diy-looks-figure img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 16px 50px rgba(43,26,11,.15)}
+.diy-looks-figure figcaption{font-size:.91rem;color:#725847;margin-top:10px;text-align:center}
+.diy-looks-intro .btn{display:inline-flex;text-decoration:none}
+@media(max-width:1060px){.diy-looks-layout{grid-template-columns:1fr;gap:23px}.diy-hero .page-hero-card img{max-height:570px;object-position:center 42%}}
+@media(max-width:760px){.diy-hero h1{font-size:clamp(2.05rem,8.1vw,2.7rem);line-height:1.1;letter-spacing:-.02em}.diy-hero .page-hero-card img{max-height:445px;object-fit:cover;object-position:center 42%}.diy-looks-intro{padding:38px 0 43px}.diy-looks-intro h2{font-size:clamp(2rem,8vw,2.5rem)}.diy-looks-figure img{border-radius:14px}}
